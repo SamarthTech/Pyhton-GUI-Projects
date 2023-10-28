@@ -1,0 +1,14 @@
+You need the following pip modules installed in your system for the program to work:
+    CSV Module
+    OpenCV Module
+    OS Module
+    Pillow Module
+    Numpy Module
+    
+    
+You can install them by writing the following commands in your Windows Powershell window.
+    pip install csv
+    pip install opencv-python
+    pip install os
+    pip install pillow
+    pip install numpy
