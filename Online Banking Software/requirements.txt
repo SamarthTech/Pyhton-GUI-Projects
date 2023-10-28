@@ -1,0 +1,8 @@
+You need the following pip modules installed in your system for the program to work:
+    Pickle
+    Time
+    
+    
+You can install them by writing the following commands in your Windows Powershell window.
+    pip install pickle
+    pip install time
