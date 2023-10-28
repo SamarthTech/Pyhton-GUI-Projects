@@ -1,0 +1,43 @@
+1) Playing music from Youtube
+    
+2) Internet SpeedTest
+
+3) Playing music from local device
+  
+4) Detecting the Temperature outside
+  
+5) Dictionary
+  
+6) Document Reader
+
+7) Opening and Closing Applications
+ 
+8) Youtube Automation
+    
+9) Alarm
+
+10) Video Downloader
+
+11) Chrome Automation
+
+12) Taking Screenshot
+
+13) Note Reminder
+
+14) Youtube Search
+
+15) Launching Websites
+
+16) Wikipedia Search
+
+17) Inbuilt Date and Time
+  
+18) Telling Jokes
+
+19) Google Search
+
+20) Whatsapp Automation
+
+21) Music Automation
+
+and many more :))
