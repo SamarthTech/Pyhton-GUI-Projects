@@ -1,6 +1,17 @@
 #textInput {
-    border: none;
-    border-bottom: 3px solid aqua;
+    border: 2px solid #009688;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    font-family: monospace;
+}
+
+#textInput:focus {
+    border-color: #004d40;
 }
 
 .userText {
@@ -10,11 +21,14 @@
     text-align: right;
     line-height: 30px;
 }
+
 .userText span {
     background-color: #009688;
-    padding: 10px;
-    border-radius: 2px;
+    padding: 12px 18px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .botText {
     color: white;
     font-family: monospace;
@@ -22,8 +36,43 @@
     text-align: left;
     line-height: 30px;
 }
+
 .botText span {
     background-color: #EF5350;
+    padding: 12px 18px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#buttonInput {
+    background-color: #009688;
+    color: white;
+    border: none;
     padding: 10px;
-    border-radius: 2px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#buttonInput:hover {
+    background-color: #00796B;
+}
+
+#buttonInput:active {
+    background-color: #004d40;
+}
+
+@media (max-width: 768px) {
+    .userText, .botText {
+        font-size: 15px;
+        line-height: 25px;
+    }
+    .userText span, .botText span {
+        padding: 10px 14px;
+        border-radius: 10px;
+    }
+    #textInput {
+        padding: 8px;
+    }
 }
