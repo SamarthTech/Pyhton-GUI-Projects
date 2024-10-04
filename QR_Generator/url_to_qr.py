@@ -1,4 +1,4 @@
-# Dependencies to bbe installed: tkinter,qrcode,PIL
+# Dependencies to be installed: tkinter,qrcode,PIL
 
 import tkinter as tk
 from tkinter import messagebox
