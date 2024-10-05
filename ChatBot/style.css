@@ -1,6 +1,21 @@
+body {
+    background: linear-gradient(to right, #74ebd5, #ACB6E5); /* Light gradient background */
+}
+
 #textInput {
-    border: none;
-    border-bottom: 3px solid aqua;
+    border: 2px solid #009688;
+    border-radius: 25px; /* More rounded input field */
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    font-family: monospace;
+    transition: border-color 0.3s ease;
+}
+
+#textInput:focus {
+    border-color: #004d40;
 }
 
 .userText {
@@ -10,11 +25,19 @@
     text-align: right;
     line-height: 30px;
 }
+
 .userText span {
     background-color: #009688;
-    padding: 10px;
-    border-radius: 2px;
+    padding: 12px 18px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease;
 }
+
+.userText span:hover {
+    background-color: #00796B; /* Hover effect for user message */
+}
+
 .botText {
     color: white;
     font-family: monospace;
@@ -22,8 +45,111 @@
     text-align: left;
     line-height: 30px;
 }
+
 .botText span {
     background-color: #EF5350;
+    padding: 12px 18px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease;
+}
+
+.botText span:hover {
+    background-color: #E57373; /* Hover effect for bot message */
+}
+
+#chatbox {
+    padding: 15px;
+    height: 400px;
+    max-height: 500px;
+    min-height: 300px;
+    overflow-y: auto;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    scroll-behavior: smooth;
+}
+
+#chatbox::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chatbox::-webkit-scrollbar-thumb {
+    background-color: #009688; /* Custom color for scrollbar */
+    border-radius: 10px;
+}
+
+#chatbox::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+#buttonInput {
+    background-color: #009688;
+    color: white;
+    border: none;
     padding: 10px;
-    border-radius: 2px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#buttonInput:hover {
+    background-color: #00796B;
+}
+
+#buttonInput:active {
+    background-color: #004d40;
+}
+
+#loading {
+    display: none;
+    text-align: center;
+    color: gray;
+    font-style: italic;
+    font-family: monospace;
+}
+
+.typing-dots {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 2px;
+    background-color: #ccc;
+    border-radius: 50%;
+    animation: blink 1s infinite ease-in-out both;
+}
+
+.typing-dots:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-dots:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dots:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .userText, .botText {
+        font-size: 15px;
+        line-height: 25px;
+    }
+    .userText span, .botText span {
+        padding: 10px 14px;
+        border-radius: 10px;
+    }
+    #textInput {
+        padding: 8px;
+    }
 }

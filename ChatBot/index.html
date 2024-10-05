@@ -6,48 +6,95 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        #chatbox {
+            padding: 15px;
+            height: 400px;
+            max-height: 500px;
+            min-height: 300px;
+            overflow-y: auto;
+            background-color: #f8f9fa; /* Light background for contrast */
+        }
+        .botText, .userText {
+            margin-bottom: 10px;
+        }
+        .userText span {
+            background-color: #dff9fb;
+            padding: 5px 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .botText span {
+            background-color: #f8c291;
+            padding: 5px 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        #loading {
+            text-align: center;
+            display: none;
+            font-style: italic;
+            color: gray;
+        }
+        @media (max-width: 768px) {
+            #chatbox {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1 class="jumbotron text-center">AI Chatbot with Python</h1>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 offset-sm-3">
-            <div id="chatbox" class="border border-success">
-                <p class="botText"><span>Hi! I'm Chatterbot</span></p>
-            </div>
-            <div id="userInput">
-                <input id="textInput" class="form-control" type="text" name="msg" placeholder="Type Your Message Here">
-                <input id="buttonInput" class="btn btn-success form-control" type="submit" value="Send">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <div id="chatbox" class="border border-success">
+                    <p class="botText"><span>Hi! I'm Chatterbot</span></p>
+                </div>
+                <div id="userInput">
+                    <input id="textInput" class="form-control" type="text" name="msg" placeholder="Ask me anything...">
+                    <input id="buttonInput" class="btn btn-success form-control" type="submit" value="Send">
+                </div>
+                <div id="loading">Chatterbot is thinking...</div>
             </div>
         </div>
     </div>
 
-<script>
-    function getResponse() {
-        let userText = $("#textInput").val();
-        let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
-        $("#textInput").val("");
-        $("#chatbox").append(userHtml);
-        document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-        $.get("/get", { msg: userText }).done(function(data) {
-        var botHtml = '<p class="botText"><span>' + data + '</span></p>';
-        $("#chatbox").append(botHtml);
-        document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-});
-}
-    $("#textInput").keypress(function(e) {
-    //if enter key is pressed
-        if(e.which == 13) {
-            getResponse();
+    <script>
+        function getResponse() {
+            let userText = $("#textInput").val();
+            let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
+            $("#textInput").val(""); 
+            $("#chatbox").append(userHtml); 
+            $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+
+            
+            $("#loading").show();
+
+            
+            $.get("/get", { msg: userText }).done(function(data) {
+                $("#loading").hide();  
+                var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+                $("#chatbox").append(botHtml); 
+                $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight); 
+            });
         }
-    });
-    $("#buttonInput").click(function() {
-        getResponse();
-    });
+
+        
+        $("#textInput").keypress(function(e) {
+            if (e.which == 13) {
+                getResponse();
+            }
+        });
+
+        
+        $("#buttonInput").click(function() {
+            getResponse();
+        });
     </script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</div>
 </body>
 </html>
